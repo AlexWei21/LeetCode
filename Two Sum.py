@@ -1,3 +1,10 @@
+'''
+Python
+Accepted
+28 ms
+13.6 mb
+'''
+
 class Solution(object):
     def twoSum(self, nums, target):
         """
