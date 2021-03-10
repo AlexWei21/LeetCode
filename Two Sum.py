@@ -3,6 +3,7 @@ Python
 Accepted
 28 ms
 13.6 mb
+O(n2)
 '''
 
 class Solution(object):
@@ -13,32 +14,25 @@ class Solution(object):
         :rtype: List[int]
         """
         
-        length = len(nums)
-        return_list = []
-        new_nums = []
-        index = 0;
-        found = False
-        
-        for i in nums:
-            if i < target:
-                new_nums.append(i)
-                index += 1
+        length = len(nums)           # length of the list
+        return_list = []             # return list                
+        found = False                # variable stores if we found the answer
                 
         for i in range(len(nums)):
             
-            if found == True:
+            if found == True:                           # Stop looping if the answer is found, since there must only have one answer
                 break
             
-            for j in range(len(nums)):
+            for j in range(len(nums)):                  # Could improve here by searching only part of numbers after i 
                 
-                if (i != j):
+                if (i != j):                            # Could not add with itself
                     
-                    if (nums[i] + nums[j]) == target:
+                    if (nums[i] + nums[j]) == target:     # Check if the answer is met, if so add the value to the return list
                         
-                        return_list.append(i)
+                        return_list.append(i)              
                         return_list.append(j)
-                        found = True
-                        break
+                        found = True                      # set found to true
+                        break                             # Stop searchinig if the answer is found
                         
                     
         return return_list
